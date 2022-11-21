@@ -24,6 +24,8 @@ spring:
      WRITE_ENUMS_USING_TO_STRING: true
     time-zone: Asia/Shanghai
     date-format: yyyy-MM-dd HH:mm:ss
+    generator:
+     WRITE_NUMBERS_AS_STRINGS: true
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
