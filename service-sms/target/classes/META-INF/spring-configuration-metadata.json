@@ -1,0 +1,72 @@
+{
+  "groups": [
+    {
+      "name": "aliyun.sms",
+      "type": "com.atguigu.srb.sms.util.SmsProperties",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "aliyun.sms.a-p-p-c-o-d-e",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.a-p-p-s-e-c-r-e-t",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.app-code",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.app-secret",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.h-o-s-t",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.host",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.m-e-t-h-o-d",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.method",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.p-a-t-h",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.path",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.t-e-m-p-l-a-t-e-i-d",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    },
+    {
+      "name": "aliyun.sms.template-id",
+      "type": "java.lang.String",
+      "sourceType": "com.atguigu.srb.sms.util.SmsProperties"
+    }
+  ],
+  "hints": []
+}

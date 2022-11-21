@@ -1,0 +1,6 @@
+com\atguigu\srb\oss\controller\api\FileController.class
+com\atguigu\srb\oss\service\impl\FileServiceImpl.class
+com\atguigu\srb\oss\util\OssProperties.class
+META-INF\spring-configuration-metadata.json
+com\atguigu\srb\oss\ServiceOssApplication.class
+com\atguigu\srb\oss\service\FileService.class

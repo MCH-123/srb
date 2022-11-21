@@ -1,0 +1,33 @@
+server:
+  port: 8110
+spring:
+  profiles:
+    active: dev #环境设置
+  application:
+    name: service-core
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://menchuanhe.top:3306/srb_core?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    username: root
+    password: 123456
+  redis:
+    host: menchuanhe.top
+    port: 6379
+    database: 0
+    timeout: 3000ms
+    lettuce:
+      pool:
+        max-active: 20
+  jackson:
+    serialization: # 开启序列化策略
+     WRITE_ENUMS_USING_TO_STRING: true
+    time-zone: Asia/Shanghai
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/atguigu/srb/core/mapper/xml/*.xml
+logging:
+  level:
+    root: error

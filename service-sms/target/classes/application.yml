@@ -1,0 +1,27 @@
+server:
+  port: 8120 # 服务端口
+
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: service-sms # 服务名
+
+  #spring:
+  redis:
+    host: menchuanhe.top
+    port: 6379
+    database: 0
+    timeout: 3000ms #最大等待时间，超时则抛出异常，否则请求一直等待
+    lettuce:
+      pool:
+        max-active: 20
+#阿里云短信
+aliyun:
+  sms:
+    appSecret: OrqD1sE278nzYqJ4JvgdFQ7iWLvBh0t1
+    appCode: 7d443865a56f4cacb9ac6c18d3b5729a
+    host: http://dingxin.market.alicloudapi.com
+    path: /dx/sendSms
+    method: POST
+    templateId: TP1711063
