@@ -7,6 +7,11 @@ import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.DateDeserializers;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -39,7 +44,7 @@ public class IntegralGrade implements Serializable {
 
     @ApiModelProperty(value = "借款额度")
     private BigDecimal borrowAmount;
-
+//    @JsonDeserialize(using = DateDeserializers.DateDeserializer.class)
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 

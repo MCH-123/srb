@@ -20,12 +20,14 @@ spring:
       pool:
         max-active: 20
   jackson:
-    serialization: # 开启序列化策略
-     WRITE_ENUMS_USING_TO_STRING: true
+    # 开启序列化策略
+#    generator:
+#      WRITE_NUMBERS_AS_STRINGS: true
+#     WRITE_ENUMS_USING_TO_STRING: true
     time-zone: Asia/Shanghai
     date-format: yyyy-MM-dd HH:mm:ss
-    generator:
-     WRITE_NUMBERS_AS_STRINGS: true
+#    default-property-inclusion: NON_DEFAULT
+
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
