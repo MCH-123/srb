@@ -5,6 +5,8 @@ import com.atguigu.common.result.R;
 import com.atguigu.common.result.ResponseEnum;
 import com.atguigu.srb.core.pojo.entity.IntegralGrade;
 import com.atguigu.srb.core.service.IntegralGradeService;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -34,11 +36,16 @@ public class AdminIntegralGradeController {
     @GetMapping("list")
     public R listAll() {
         List<IntegralGrade> list = integralGradeService.list();
-//        log.debug("{}级别日志" , "debug");
-//        log.info("{}级别日志" , "info");
-//        log.warn("{}级别日志" , "warn");
-//        log.error("{}级别日志" , "error");
         return R.ok().data("list", list);
+    }
+
+    @ApiOperation("积分等级分页列表")
+    @GetMapping("{currentPage}/{pageSize}")
+    public R pageList(@PathVariable Integer currentPage,@PathVariable Integer pageSize ) {
+//        List<IntegralGrade> list = integralGradeService.list();
+        Page<IntegralGrade> page = new Page<>(currentPage, pageSize);
+        IPage<IntegralGrade> pageList = integralGradeService.getPageList(page);
+        return R.ok().data("list", pageList);
     }
 
     @ApiOperation(value = "根据id删除积分等级", notes = "逻辑删除")

@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,6 +50,7 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
         return excelDictDTOList;
     }
 
+    @Cacheable(value = "cache", key = "'dict:'+#parentId")
     @Override
     public List<Dict> listByParentId(Long parentId) {
         List<Dict> dictList = baseMapper.selectList(new QueryWrapper<Dict>().eq("parent_id", parentId));

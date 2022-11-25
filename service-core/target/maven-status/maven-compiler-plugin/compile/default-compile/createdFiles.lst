@@ -5,7 +5,6 @@ com\atguigu\srb\core\mapper\LendItemReturnMapper.class
 com\atguigu\srb\core\ServiceCoreApplication.class
 com\atguigu\srb\core\controller\LendItemController.class
 com\atguigu\srb\core\service\LendItemService.class
-com\atguigu\srb\core\controller\UserInfoController.class
 com\atguigu\srb\core\service\BorrowerService.class
 com\atguigu\srb\core\controller\UserBindController.class
 com\atguigu\srb\core\mapper\BorrowInfoMapper.class
@@ -34,6 +33,7 @@ com\atguigu\srb\core\service\impl\LendItemServiceImpl.class
 com\atguigu\srb\core\service\impl\UserIntegralServiceImpl.class
 com\atguigu\srb\core\controller\DictController.class
 com\atguigu\srb\core\service\impl\UserLoginRecordServiceImpl.class
+com\atguigu\srb\core\config\JacksonConfig.class
 com\atguigu\srb\core\mapper\BorrowerAttachMapper.class
 com\atguigu\srb\core\service\impl\BorrowerServiceImpl.class
 com\atguigu\srb\core\pojo\entity\Dict.class

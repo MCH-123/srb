@@ -19,6 +19,7 @@ F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atgu
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\controller\UserIntegralController.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\BorrowInfo.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\BorrowerAttachService.java
+F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\config\JacksonConfig.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\listener\ExcelDictDTOListener.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\impl\LendServiceImpl.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\IntegralGradeService.java
@@ -44,6 +45,7 @@ F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atgu
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\impl\BorrowerAttachServiceImpl.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\LendItemService.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\Dict.java
+F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\vo\UserInfoVO.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\impl\TransFlowServiceImpl.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\UserBindService.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\mapper\LendMapper.java
@@ -59,6 +61,7 @@ F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atgu
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\mapper\UserLoginRecordMapper.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\mapper\TransFlowMapper.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\config\MybatisPlusConfig.java
+F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\vo\LoginVO.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\mapper\UserBindMapper.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\DictService.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\impl\IntegralGradeServiceImpl.java
@@ -67,6 +70,8 @@ F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atgu
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\mapper\BorrowerAttachMapper.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\mapper\IntegralGradeMapper.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\LendReturn.java
+F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\vo\RegisterVO.java
+F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\controller\api\UserInfoController.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\mapper\UserIntegralMapper.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\UserBind.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\UserAccountService.java
@@ -77,5 +82,4 @@ F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atgu
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\impl\BorrowInfoServiceImpl.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\mapper\LendItemReturnMapper.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\controller\admin\AdminDictController.java
-F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\controller\UserInfoController.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\Borrower.java
