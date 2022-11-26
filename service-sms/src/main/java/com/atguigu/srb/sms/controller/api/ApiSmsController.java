@@ -5,6 +5,7 @@ import com.atguigu.common.result.R;
 import com.atguigu.common.result.ResponseEnum;
 import com.atguigu.common.util.RandomUtils;
 import com.atguigu.common.util.RegexValidateUtils;
+import com.atguigu.srb.sms.client.CoreUserInfoClient;
 import com.atguigu.srb.sms.service.SmsService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,13 +27,15 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/api/sms")
 @Api(tags = "短信管理")
-@CrossOrigin
+//@CrossOrigin
 @Slf4j
 public class ApiSmsController {
     @Resource
     private SmsService smsService;
     @Resource
     private RedisTemplate<String, String> redisTemplate;
+    @Resource
+    private CoreUserInfoClient coreUserInfoClient;
 
 
     @ApiOperation("获取验证码")
@@ -40,6 +43,10 @@ public class ApiSmsController {
     public R send(@ApiParam(value = "手机号",required = true) @PathVariable String mobile) throws Exception {
         Assert.notEmpty(mobile, ResponseEnum.MOBILE_NULL_ERROR);
         Assert.isTrue(RegexValidateUtils.checkCellphone(mobile),ResponseEnum.MOBILE_ERROR);
+        //远程调用检查是否已注册
+        boolean result = coreUserInfoClient.checkMobile(mobile);
+        log.info("是否注册:{}",result);
+        Assert.isTrue(!result,ResponseEnum.MOBILE_EXIST_ERROR);
 //        生成验证码
         String code = RandomUtils.getFourBitRandom();
         //发送短信

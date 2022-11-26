@@ -119,7 +119,12 @@
             <appender-ref ref="ERROR_FILE" />
         </root>
     </springProfile>
-
+<!--    &lt;!&ndash; 开发环境和测试环境 &ndash;&gt;-->
+<!--    <springProfile name="dev,test">-->
+<!--        <logger name="com.atguigu" level="DEBUG">-->
+<!--            <appender-ref ref="CONSOLE" />-->
+<!--        </logger>-->
+<!--    </springProfile>-->
     <!--生产环境-->
     <springProfile name="pro">
         <root level="ERROR">

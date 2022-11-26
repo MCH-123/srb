@@ -23,7 +23,7 @@ import java.util.List;
  * @Date 2022/11/13
  * @Version 1.0
  */
-@CrossOrigin
+//@CrossOrigin
 @Slf4j
 @RestController
 @Api(tags = "积分等级管理")

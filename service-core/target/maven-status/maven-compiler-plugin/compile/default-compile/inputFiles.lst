@@ -3,6 +3,7 @@ F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atgu
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\controller\BorrowerAttachController.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\controller\UserBindController.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\LendItemReturn.java
+F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\controller\admin\AdminUserLoginRecordController.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\BorrowerAttach.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\UserLoginRecord.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\impl\UserAccountServiceImpl.java
@@ -76,10 +77,12 @@ F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atgu
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\UserBind.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\UserAccountService.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\ServiceCoreApplication.java
+F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\controller\admin\AdminUserInfoController.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\controller\DictController.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\LendReturnService.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\UserAccount.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\service\impl\BorrowInfoServiceImpl.java
+F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\query\UserInfoQuery.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\mapper\LendItemReturnMapper.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\controller\admin\AdminDictController.java
 F:\尚硅谷上海课程\尚融宝项目\srb\service-core\src\main\java\com\atguigu\srb\core\pojo\entity\Borrower.java

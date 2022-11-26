@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://menchuanhe.top:3306/srb_core?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
     username: root
-    password: 123456
+    password: 412826
   redis:
     host: menchuanhe.top
     port: 6379
@@ -26,6 +26,9 @@ spring:
 #     WRITE_ENUMS_USING_TO_STRING: true
     time-zone: Asia/Shanghai
     date-format: yyyy-MM-dd HH:mm:ss
+  cloud:
+    nacos:
+      server-addr: 192.168.14.111:8848
 #    serialization:
 #     WRITE_DATES_AS_TIMESTAMPS: false
 #    default-property-inclusion: NON_DEFAULT

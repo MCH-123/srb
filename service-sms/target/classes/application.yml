@@ -6,7 +6,9 @@ spring:
     active: dev # 环境设置
   application:
     name: service-sms # 服务名
-
+  cloud:
+    nacos:
+      server-addr: 192.168.14.111:8848
   #spring:
   redis:
     host: menchuanhe.top
@@ -16,6 +18,14 @@ spring:
     lettuce:
       pool:
         max-active: 20
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000 #连接超时配置
+        readTimeout: 600000 #执行超时配置
+  sentinel:
+    enabled: true
 #阿里云短信
 aliyun:
   sms:
@@ -25,3 +35,6 @@ aliyun:
     path: /dx/sendSms
     method: POST
     templateId: TP1711063
+logging:
+  level:
+    com.atguigu.srb.sms.client.CoreUserInfoClient: debug

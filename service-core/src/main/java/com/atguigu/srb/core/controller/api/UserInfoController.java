@@ -29,9 +29,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Api(tags = "会员接口")
 @RestController
-@RequestMapping("api/core/userInfo")
+@RequestMapping("/api/core/userInfo")
 @Slf4j
-@CrossOrigin
+//@CrossOrigin
 public class UserInfoController {
 
     @Resource
@@ -83,6 +83,11 @@ public class UserInfoController {
         } else {
             return R.setResult(ResponseEnum.LOGIN_AUTH_ERROR);
         }
+    }
+    @ApiOperation("校验手机号是否注册")
+    @GetMapping("/checkMobile/{mobile}")
+    public boolean checkMobile(@PathVariable String mobile) {
+        return userInfoService.checkMobile(mobile);
     }
 }
 
