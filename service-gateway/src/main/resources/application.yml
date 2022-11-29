@@ -12,7 +12,7 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true # 自动发现nacos中的服务,并自动生成转发路由
+          enabled: true # 自动发现nacos中的服务 并自动生成转发路由
       routes:
         - id: service-core
           uri: lb://service-core

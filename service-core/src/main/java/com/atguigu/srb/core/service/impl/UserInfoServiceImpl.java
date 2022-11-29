@@ -94,6 +94,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         UserInfoVO userInfoVO = new UserInfoVO();
         userInfoVO.setToken(token);
         userInfoVO.setName(userInfo.getName());
+        userInfoVO.setNickName(userInfo.getNickName());
         userInfoVO.setHeadImg(userInfo.getHeadImg());
         userInfoVO.setMobile(userInfo.getMobile());
         userInfoVO.setUserType(userType);
