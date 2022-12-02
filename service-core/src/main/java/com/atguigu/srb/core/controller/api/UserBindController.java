@@ -6,6 +6,7 @@ import com.atguigu.common.result.R;
 import com.atguigu.srb.base.util.JwtUtils;
 import com.atguigu.srb.core.hfb.RequestHelper;
 import com.atguigu.srb.core.pojo.vo.UserBindVO;
+import com.atguigu.srb.core.pojo.vo.UserIndexVO;
 import com.atguigu.srb.core.service.UserBindService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -35,7 +36,7 @@ public class UserBindController {
 
     @ApiOperation("账号绑定提交数据")
     @PostMapping("/auth/bind")
-    public R bind(@RequestBody UserBindVO userBindVO, @RequestHeader("token") String token) {
+    public R bind(@RequestBody UserBindVO userBindVO, @RequestHeader(value = "token",required = false) String token) {
         Long userId = JwtUtils.getUserId(token);
         String formStr = userBindService.commitBindUser(userBindVO, userId);
         return R.ok().data("formStr", formStr);

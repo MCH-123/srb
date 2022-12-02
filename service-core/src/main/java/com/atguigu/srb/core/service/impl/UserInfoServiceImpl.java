@@ -13,6 +13,7 @@ import com.atguigu.srb.core.pojo.entity.UserLoginRecord;
 import com.atguigu.srb.core.pojo.query.UserInfoQuery;
 import com.atguigu.srb.core.pojo.vo.LoginVO;
 import com.atguigu.srb.core.pojo.vo.RegisterVO;
+import com.atguigu.srb.core.pojo.vo.UserIndexVO;
 import com.atguigu.srb.core.pojo.vo.UserInfoVO;
 import com.atguigu.srb.core.service.UserInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -35,6 +36,7 @@ import javax.annotation.Resource;
  * @since 2022-11-13
  */
 @Service
+@Transactional
 public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements UserInfoService {
     @Resource
     private UserAccountMapper userAccountMapper;
@@ -132,5 +134,33 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         LambdaQueryWrapper<UserInfo> qw = new LambdaQueryWrapper<>();
         qw.eq(UserInfo::getMobile, mobile);
         return baseMapper.selectCount(qw) > 0;
+    }
+
+    @Override
+    public UserIndexVO getIndexUserInfo(Long userId) {
+        //用户信息
+        UserInfo userInfo = baseMapper.selectById(userId);
+        //账户信息
+        UserAccount userAccount = userAccountMapper.selectOne(new LambdaQueryWrapper<UserAccount>().eq(UserAccount::getUserId, userId));
+        //登录信息
+        UserLoginRecord userLoginRecord = userLoginRecordMapper.selectOne(new LambdaQueryWrapper<UserLoginRecord>()
+                .eq(UserLoginRecord::getUserId, userId)
+                .orderByDesc(UserLoginRecord::getId)
+                .last("limit 1")
+        );
+
+        //封装信息
+        UserIndexVO userIndexVO = new UserIndexVO();
+        userIndexVO.setUserId(userId);
+        userIndexVO.setUserType(userInfo.getUserType());
+        userIndexVO.setName(userInfo.getName());
+        userIndexVO.setNickName(userInfo.getNickName());
+        userIndexVO.setHeadImg(userInfo.getHeadImg());
+        userIndexVO.setBindStatus(userInfo.getBindStatus());
+        userIndexVO.setAmount(userAccount.getAmount());
+        userIndexVO.setFreezeAmount(userAccount.getFreezeAmount());
+        userIndexVO.setLastLoginTime(userLoginRecord.getCreateTime());
+
+        return userIndexVO;
     }
 }

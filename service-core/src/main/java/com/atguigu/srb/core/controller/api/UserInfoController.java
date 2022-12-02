@@ -8,6 +8,7 @@ import com.atguigu.common.util.RegexValidateUtils;
 import com.atguigu.srb.base.util.JwtUtils;
 import com.atguigu.srb.core.pojo.vo.LoginVO;
 import com.atguigu.srb.core.pojo.vo.RegisterVO;
+import com.atguigu.srb.core.pojo.vo.UserIndexVO;
 import com.atguigu.srb.core.pojo.vo.UserInfoVO;
 import com.atguigu.srb.core.service.UserInfoService;
 import io.swagger.annotations.Api;
@@ -48,13 +49,13 @@ public class UserInfoController {
         String code = registerVO.getCode();
         //非空判断
         Assert.notEmpty(mobile, ResponseEnum.MOBILE_NULL_ERROR);
-        Assert.isTrue(RegexValidateUtils.checkCellphone(mobile),ResponseEnum.MOBILE_ERROR);
-        Assert.notEmpty(password,ResponseEnum.PASSWORD_NULL_ERROR);
-        Assert.notEmpty(code,ResponseEnum.CODE_NULL_ERROR);
+        Assert.isTrue(RegexValidateUtils.checkCellphone(mobile), ResponseEnum.MOBILE_ERROR);
+        Assert.notEmpty(password, ResponseEnum.PASSWORD_NULL_ERROR);
+        Assert.notEmpty(code, ResponseEnum.CODE_NULL_ERROR);
 
         //校验验证码
-        String codeGen = (String)redisTemplate.opsForValue().get("srb:sms:code:" + mobile);
-        Assert.equals(code,codeGen,ResponseEnum.CODE_ERROR);
+        String codeGen = (String) redisTemplate.opsForValue().get("srb:sms:code:" + mobile);
+        Assert.equals(code, codeGen, ResponseEnum.CODE_ERROR);
 
         //注册
         userInfoService.register(registerVO);
@@ -66,8 +67,8 @@ public class UserInfoController {
     public R login(@RequestBody LoginVO loginVO, HttpServletRequest request) {
         String mobile = loginVO.getMobile();
         String password = loginVO.getPassword();
-        Assert.notEmpty(mobile,ResponseEnum.MOBILE_NULL_ERROR);
-        Assert.notEmpty(password,ResponseEnum.PASSWORD_NULL_ERROR);
+        Assert.notEmpty(mobile, ResponseEnum.MOBILE_NULL_ERROR);
+        Assert.notEmpty(password, ResponseEnum.PASSWORD_NULL_ERROR);
         String ip = request.getRemoteAddr();
         UserInfoVO userInfoVO = userInfoService.login(loginVO, ip);
         return R.ok().data("userInfo", userInfoVO);
@@ -84,10 +85,20 @@ public class UserInfoController {
             return R.setResult(ResponseEnum.LOGIN_AUTH_ERROR);
         }
     }
+
     @ApiOperation("校验手机号是否注册")
     @GetMapping("/checkMobile/{mobile}")
     public boolean checkMobile(@PathVariable String mobile) {
         return userInfoService.checkMobile(mobile);
+    }
+
+    @ApiOperation("获取个人空间用户信息")
+    @GetMapping("/auth/getIndexUserInfo")
+    public R getIndexUserInfo(@RequestHeader(value = "token",required = false) String token) {
+        log.debug("token:{}",token);
+        Long userId = JwtUtils.getUserId(token);
+        UserIndexVO userInfo = userInfoService.getIndexUserInfo(userId);
+        return R.ok().data("userIndexVO", userInfo);
     }
 }
 

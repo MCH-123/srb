@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author mch
  * @since 2022-11-13
  */
-@RestController
+//@RestController
 @RequestMapping("/dict")
 public class DictController {
 

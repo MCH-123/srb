@@ -1,11 +1,14 @@
 package com.atguigu.srb.core.service.impl;
 
 import com.alibaba.excel.EasyExcel;
+import com.atguigu.common.exception.Assert;
+import com.atguigu.common.result.ResponseEnum;
 import com.atguigu.srb.core.listener.ExcelDictDTOListener;
 import com.atguigu.srb.core.mapper.DictMapper;
 import com.atguigu.srb.core.pojo.dto.ExcelDictDTO;
 import com.atguigu.srb.core.pojo.entity.Dict;
 import com.atguigu.srb.core.service.DictService;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +31,7 @@ import java.util.List;
  */
 @Slf4j
 @Service
+@Transactional
 public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements DictService {
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -60,6 +64,24 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
             dict.setHasChildren(hasChildren);
         });
         return dictList;
+    }
+
+    @Override
+    public List<Dict> findByDictCode(String dictCode) {
+        Dict dict = baseMapper.selectOne(new LambdaQueryWrapper<Dict>().eq(Dict::getDictCode, dictCode));
+        return this.listByParentId(dict.getId());
+    }
+
+    @Override
+    public String getNameByParentDictCodeAndValue(String dictCode, Integer value) {
+        Dict parentDict = baseMapper.selectOne(new LambdaQueryWrapper<Dict>()
+                .eq(Dict::getDictCode, dictCode));
+        if (parentDict == null) return "";
+        Dict dict = baseMapper.selectOne(new LambdaQueryWrapper<Dict>()
+                .eq(Dict::getParentId, parentDict.getId())
+                .eq(Dict::getValue, value));
+        if (dict == null) return "";
+        return dict.getName();
     }
 
     //判断是否有子节点

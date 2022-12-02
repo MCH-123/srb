@@ -6,14 +6,12 @@ com\atguigu\srb\core\ServiceCoreApplication.class
 com\atguigu\srb\core\controller\LendItemController.class
 com\atguigu\srb\core\service\LendItemService.class
 com\atguigu\srb\core\service\BorrowerService.class
-com\atguigu\srb\core\controller\UserBindController.class
 com\atguigu\srb\core\mapper\BorrowInfoMapper.class
 com\atguigu\srb\core\mapper\UserInfoMapper.class
 com\atguigu\srb\core\pojo\entity\UserInfo.class
 com\atguigu\srb\core\pojo\entity\IntegralGrade.class
 com\atguigu\srb\core\mapper\LendMapper.class
 com\atguigu\srb\core\service\impl\IntegralGradeServiceImpl.class
-com\atguigu\srb\core\controller\BorrowerController.class
 com\atguigu\srb\core\mapper\UserIntegralMapper.class
 com\atguigu\srb\core\pojo\entity\LendItem.class
 com\atguigu\srb\core\pojo\entity\LendItemReturn.class

@@ -11,6 +11,7 @@ import com.atguigu.srb.core.pojo.entity.UserBind;
 import com.atguigu.srb.core.mapper.UserBindMapper;
 import com.atguigu.srb.core.pojo.entity.UserInfo;
 import com.atguigu.srb.core.pojo.vo.UserBindVO;
+import com.atguigu.srb.core.pojo.vo.UserIndexVO;
 import com.atguigu.srb.core.service.UserBindService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -31,6 +32,7 @@ import java.util.Map;
  * @since 2022-11-13
  */
 @Service
+@Transactional
 public class UserBindServiceImpl extends ServiceImpl<UserBindMapper, UserBind> implements UserBindService {
     @Resource
     private UserInfoMapper userInfoMapper;
@@ -100,4 +102,5 @@ public class UserBindServiceImpl extends ServiceImpl<UserBindMapper, UserBind> i
         userInfo.setBindStatus(UserBindEnum.BIND_OK.getStatus());
         userInfoMapper.updateById(userInfo);
     }
+
 }
