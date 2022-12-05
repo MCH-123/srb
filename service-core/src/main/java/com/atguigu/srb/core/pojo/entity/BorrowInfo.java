@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -62,6 +65,18 @@ public class BorrowInfo implements Serializable {
     @TableField("is_deleted")
     @TableLogic
     private Boolean deleted;
+    //扩展字段
+    @ApiModelProperty("姓名")
+    @TableField(exist = false)
+    private String name;
+
+    @ApiModelProperty("手机")
+    @TableField(exist = false)
+    private String mobile;
+
+    @ApiModelProperty("其他参数")
+    @TableField(exist = false)
+    private Map<String, Object> param = new HashMap<>();
 
 
 }

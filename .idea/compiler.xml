@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="jwt" />
         <module name="guigu-common" />
+        <module name="hfb" />
         <module name="service-oss" />
         <module name="service-gateway" />
         <module name="service-core" />

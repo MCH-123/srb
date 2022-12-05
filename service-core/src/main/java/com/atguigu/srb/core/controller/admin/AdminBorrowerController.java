@@ -2,9 +2,11 @@ package com.atguigu.srb.core.controller.admin;
 
 
 import com.atguigu.common.result.R;
+import com.atguigu.srb.core.pojo.entity.BorrowInfo;
 import com.atguigu.srb.core.pojo.entity.Borrower;
 import com.atguigu.srb.core.pojo.vo.BorrowerApprovalVO;
 import com.atguigu.srb.core.pojo.vo.BorrowerDetailVO;
+import com.atguigu.srb.core.service.BorrowInfoService;
 import com.atguigu.srb.core.service.BorrowerService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -15,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -32,6 +35,9 @@ public class AdminBorrowerController {
     @Resource
     private BorrowerService borrowerService;
 
+    @Resource
+    private BorrowInfoService borrowInfoService;
+
     @ApiOperation("获取借款人分页列表")
     @GetMapping("list/{page}/{limit}")
     public R listPage(
@@ -39,7 +45,7 @@ public class AdminBorrowerController {
             @PathVariable Long page,
             @ApiParam(value = "每页记录数",required = true)
             @PathVariable Long limit,
-            @ApiParam(value = "查询关键字",required = false)
+            @ApiParam(value = "查询关键字")
             @RequestParam String keyWord
     ) {
         Page<Borrower> pageParam = new Page<>(page, limit);
@@ -62,6 +68,13 @@ public class AdminBorrowerController {
     public R approval(@RequestBody BorrowerApprovalVO borrowerApprovalVO) {
         borrowerService.approval(borrowerApprovalVO);
         return R.ok().message("审批完成");
+    }
+
+    @ApiOperation("借款人信息列表")
+    @GetMapping("/list")
+    public R list() {
+        List<BorrowInfo> borrowInfoList = borrowInfoService.selectList();
+        return R.ok().data("list", borrowInfoList);
     }
 }
 
