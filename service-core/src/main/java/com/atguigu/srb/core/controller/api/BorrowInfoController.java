@@ -38,11 +38,19 @@ public class BorrowInfoController {
     }
 
     @ApiOperation("提交借款申请")
-    @PostMapping("auth/save/")
+    @PostMapping("auth/save")
     public R save(@RequestBody BorrowInfo borrowInfo, @RequestHeader("token") String token) {
         Long userId = JwtUtils.getUserId(token);
         borrowInfoService.saveBorrowInfo(borrowInfo, userId);
         return R.ok().message("提交成功");
+    }
+
+    @ApiOperation("获取借款申请状态")
+    @GetMapping("/auth/getBorrowInfoStatus")
+    public R getBorrowInfoStatus(@RequestHeader("token") String token) {
+        Long userId = JwtUtils.getUserId(token);
+        Integer status = borrowInfoService.getBorrowInfoStatus(userId);
+        return R.ok().data("borrowInfoStatus", status);
     }
 }
 

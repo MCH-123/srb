@@ -21,4 +21,5 @@ public interface UserBindService extends IService<UserBind> {
 
     void notify(Map<String, Object> paramMap);
 
+    String getBindCodeByUserId(Long userId);
 }

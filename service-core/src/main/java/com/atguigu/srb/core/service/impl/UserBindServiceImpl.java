@@ -14,6 +14,7 @@ import com.atguigu.srb.core.pojo.vo.UserBindVO;
 import com.atguigu.srb.core.pojo.vo.UserIndexVO;
 import com.atguigu.srb.core.service.UserBindService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -101,6 +102,15 @@ public class UserBindServiceImpl extends ServiceImpl<UserBindMapper, UserBind> i
         userInfo.setIdCard(userBind.getIdCard());
         userInfo.setBindStatus(UserBindEnum.BIND_OK.getStatus());
         userInfoMapper.updateById(userInfo);
+    }
+
+    @Override
+    public String getBindCodeByUserId(Long userId) {
+
+        UserBind userBind = baseMapper.selectOne(Wrappers.lambdaQuery(UserBind.class)
+                .select(UserBind::getBindCode)
+                .eq(UserBind::getUserId, userId));
+        return userBind.getBindCode();
     }
 
 }

@@ -1,10 +1,13 @@
 package com.atguigu.srb.core.service;
 
 import com.atguigu.srb.core.pojo.entity.BorrowInfo;
+import com.atguigu.srb.core.pojo.vo.BorrowInfoApprovalVO;
+import com.atguigu.srb.core.pojo.vo.BorrowerApprovalVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -21,4 +24,12 @@ public interface BorrowInfoService extends IService<BorrowInfo> {
     List<BorrowInfo> selectList();
 
     void saveBorrowInfo(BorrowInfo borrowInfo, Long userId);
+
+    Integer getBorrowInfoStatus(Long userId);
+
+    Map<String, Object> getBorrowDetail(Long id);
+
+
+    void approval(BorrowInfoApprovalVO borrowInfoApprovalVO);
+
 }

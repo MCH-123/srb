@@ -41,7 +41,6 @@ com\atguigu\srb\core\service\impl\UserBindServiceImpl.class
 com\atguigu\srb\core\service\impl\BorrowerAttachServiceImpl.class
 com\atguigu\srb\core\controller\LendReturnController.class
 com\atguigu\srb\core\controller\admin\AdminIntegralGradeController.class
-com\atguigu\srb\core\controller\LendController.class
 com\atguigu\srb\core\service\impl\TransFlowServiceImpl.class
 com\atguigu\srb\core\pojo\entity\UserLoginRecord.class
 com\atguigu\srb\core\service\UserBindService.class
@@ -56,9 +55,7 @@ com\atguigu\srb\core\pojo\dto\ExcelDictDTO.class
 com\atguigu\srb\core\mapper\LendReturnMapper.class
 com\atguigu\srb\core\service\impl\LendItemReturnServiceImpl.class
 com\atguigu\srb\core\service\impl\LendServiceImpl.class
-com\atguigu\srb\core\controller\UserAccountController.class
 com\atguigu\srb\core\controller\IntegralGradeController.class
-com\atguigu\srb\core\controller\BorrowInfoController.class
 com\atguigu\srb\core\listener\ExcelDictDTOListener.class
 com\atguigu\srb\core\service\impl\DictServiceImpl.class
 com\atguigu\srb\core\controller\UserIntegralController.class

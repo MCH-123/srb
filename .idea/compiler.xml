@@ -10,11 +10,11 @@
         <module name="jwt" />
         <module name="guigu-common" />
         <module name="hfb" />
-        <module name="service-oss" />
+        <module name="service-base" />
         <module name="service-gateway" />
         <module name="service-core" />
         <module name="service-sms" />
-        <module name="service-base" />
+        <module name="service-oss" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

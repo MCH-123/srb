@@ -44,13 +44,13 @@ public class ApiSmsController {
         Assert.notEmpty(mobile, ResponseEnum.MOBILE_NULL_ERROR);
         Assert.isTrue(RegexValidateUtils.checkCellphone(mobile),ResponseEnum.MOBILE_ERROR);
         //远程调用检查是否已注册
-        boolean result = coreUserInfoClient.checkMobile(mobile);
-        log.info("是否注册:{}",result);
-        Assert.isTrue(!result,ResponseEnum.MOBILE_EXIST_ERROR);
+//        boolean result = coreUserInfoClient.checkMobile(mobile);
+//        log.info("是否注册:{}",result);
+//        Assert.isTrue(!result,ResponseEnum.MOBILE_EXIST_ERROR);
 //        生成验证码
         String code = RandomUtils.getFourBitRandom();
         //发送短信
-        smsService.send(mobile, code);
+//        smsService.send(mobile, code);
         //将验证码存入redis
         redisTemplate.opsForValue().set("srb:sms:code:" + mobile, code, 5, TimeUnit.MINUTES);
         return R.ok().message("短信发送成功");
