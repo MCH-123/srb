@@ -160,7 +160,8 @@ public class LendItemServiceImpl extends ServiceImpl<LendItemMapper, LendItem> i
     @Override
     public List<LendItem> selectByLendId(Long lendId) {
         return baseMapper.selectList(Wrappers.lambdaQuery(LendItem.class)
-        .eq(LendItem::getLendId,lendId));
+        .eq(LendItem::getLendId,lendId)
+        .eq(LendItem::getStatus,1));
     }
 
     private LendItem getByLendItemNo(String agentBillNo) {

@@ -15,6 +15,7 @@ import com.atguigu.srb.core.mapper.UserAccountMapper;
 import com.atguigu.srb.core.pojo.entity.UserInfo;
 import com.atguigu.srb.core.service.TransFlowService;
 import com.atguigu.srb.core.service.UserAccountService;
+import com.atguigu.srb.core.service.UserBindService;
 import com.atguigu.srb.core.util.LendNoUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -43,6 +44,8 @@ public class UserAccountServiceImpl extends ServiceImpl<UserAccountMapper, UserA
     private UserInfoMapper userInfoMapper;
     @Resource
     private TransFlowService transFlowService;
+    @Resource
+    private UserBindService userBindService;
     @Override
     public String commitCharge(BigDecimal chargeAmt, Long userId) {
         UserInfo userInfo = userInfoMapper.selectById(userId);
@@ -89,5 +92,50 @@ public class UserAccountServiceImpl extends ServiceImpl<UserAccountMapper, UserA
                 .select(UserAccount::getAmount)
                 .eq(UserAccount::getUserId, userId));
         return userAccount.getAmount();
+    }
+
+    @Override
+    public String commitWithdraw(Long userId, BigDecimal fetchAmt) {
+        //账户可用余额充足
+        BigDecimal amount = this.getAccount(userId);
+        Assert.isTrue(amount.doubleValue()>=fetchAmt.doubleValue(),ResponseEnum.NOT_SUFFICIENT_FUNDS_ERROR);
+        String bindCode = userBindService.getBindCodeByUserId(userId);
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("agentId", HfbConst.AGENT_ID);
+        paramMap.put("agentBillNo", LendNoUtils.getWithdrawNo());
+        paramMap.put("bindCode", bindCode);
+        paramMap.put("fetchAmt", fetchAmt);
+        paramMap.put("feeAmt", new BigDecimal(0));
+        paramMap.put("notifyUrl", HfbConst.WITHDRAW_NOTIFY_URL);
+        paramMap.put("returnUrl", HfbConst.WITHDRAW_RETURN_URL);
+        paramMap.put("timestamp", RequestHelper.getTimestamp());
+        String sign = RequestHelper.getSign(paramMap);
+        paramMap.put("sign", sign);
+        return FormHelper.buildForm(HfbConst.WITHDRAW_URL, paramMap);
+    }
+
+    @Override
+    public void notifyWithdraw(Map<String, Object> param) {
+        log.info("提现成功");
+        String agentBillNo = (String) param.get("agentBillNo");
+        boolean result = transFlowService.isSaveTransFlow(agentBillNo);
+        if (result) {
+            log.warn("幂等性返回");
+            return;
+        }
+        String bindCode = (String)param.get("bindCode");
+        String fetchAmt = (String)param.get("fetchAmt");
+
+        //根据用户账户修改账户金额
+        baseMapper.updateAccount(bindCode, new BigDecimal("-" + fetchAmt), new BigDecimal(0));
+
+        //增加交易流水
+        TransFlowBO transFlowBO = new TransFlowBO(
+                agentBillNo,
+                bindCode,
+                new BigDecimal(fetchAmt),
+                TransTypeEnum.WITHDRAW,
+                "提现");
+        transFlowService.saveTransFlow(transFlowBO);
     }
 }

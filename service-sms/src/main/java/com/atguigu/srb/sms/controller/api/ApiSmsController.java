@@ -44,9 +44,9 @@ public class ApiSmsController {
         Assert.notEmpty(mobile, ResponseEnum.MOBILE_NULL_ERROR);
         Assert.isTrue(RegexValidateUtils.checkCellphone(mobile),ResponseEnum.MOBILE_ERROR);
         //远程调用检查是否已注册
-//        boolean result = coreUserInfoClient.checkMobile(mobile);
-//        log.info("是否注册:{}",result);
-//        Assert.isTrue(!result,ResponseEnum.MOBILE_EXIST_ERROR);
+        boolean result = coreUserInfoClient.checkMobile(mobile);
+        log.info("是否注册:{}",result);
+        Assert.isTrue(!result,ResponseEnum.MOBILE_EXIST_ERROR);
 //        生成验证码
         String code = RandomUtils.getFourBitRandom();
         //发送短信

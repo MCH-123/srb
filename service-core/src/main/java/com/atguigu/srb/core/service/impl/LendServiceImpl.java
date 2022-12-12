@@ -268,7 +268,7 @@ public class LendServiceImpl extends ServiceImpl<LendMapper, Lend> implements Le
         }
         //更新还款计划中的相关金额数据
         for (LendReturn lendReturn : lendReturnList) {
-            BigDecimal sumPrincipal = lendItemReturnAllList.stream().filter(item -> item.getLendId().longValue() == lendReturn.getId().longValue())
+            BigDecimal sumPrincipal = lendItemReturnAllList.stream().filter(item -> item.getLendReturnId().longValue() == lendReturn.getId().longValue())
                     .map(LendItemReturn::getPrincipal)
                     .reduce(BigDecimal.ZERO, BigDecimal::add);
             BigDecimal sumInterest = lendItemReturnAllList.stream().filter(item -> item.getLendReturnId().longValue() == lendReturn.getId().longValue())
@@ -349,10 +349,11 @@ public class LendServiceImpl extends ServiceImpl<LendMapper, Lend> implements Le
                 //最后一期应还本金 = 用当前投资人的总投资金额 - 除了最后一期前面期数计算出来的所有的应还本金
                 BigDecimal lastPrincipal = lendItem.getInvestAmount().subtract(sumPrincipal);
                 lendItemReturn.setPrincipal(lastPrincipal);
+
             } else {
                 lendItemReturn.setPrincipal(mapPrincipal.get(currentPeriod));
-                lendItemReturn.setInterest(mapInterest.get(currentPeriod));
             }
+            lendItemReturn.setInterest(mapInterest.get(currentPeriod));
             lendItemReturn.setTotal(lendItemReturn.getPrincipal().add(lendItemReturn.getInterest()));
             lendItemReturn.setFee(new BigDecimal(0));
             lendItemReturn.setReturnDate(lend.getLendStartDate().plusMonths(currentPeriod));
