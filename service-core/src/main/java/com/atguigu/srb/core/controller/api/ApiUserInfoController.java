@@ -33,7 +33,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/api/core/userInfo")
 @Slf4j
 //@CrossOrigin
-public class UserInfoController {
+public class ApiUserInfoController {
 
     @Resource
     private UserInfoService userInfoService;

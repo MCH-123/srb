@@ -24,7 +24,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("api/core/borrower")
 @Slf4j
-public class BorrowerController {
+public class ApiBorrowerController {
     @Resource
     private BorrowerService borrowerService;
 

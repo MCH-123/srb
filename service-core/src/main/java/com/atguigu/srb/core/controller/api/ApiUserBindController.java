@@ -29,7 +29,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/core/userBind")
 @Slf4j
-public class UserBindController {
+public class ApiUserBindController {
 
     @Resource
     private UserBindService userBindService;

@@ -29,7 +29,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("api/core/userAccount")
-public class UserAccountController {
+public class ApiUserAccountController {
     @Resource
     private UserAccountService userAccountService;
 

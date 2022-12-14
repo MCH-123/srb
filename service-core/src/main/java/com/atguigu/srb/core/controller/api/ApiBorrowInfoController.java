@@ -25,7 +25,7 @@ import java.math.BigDecimal;
 @Slf4j
 @RestController
 @RequestMapping("api/core/borrowInfo")
-public class BorrowInfoController {
+public class ApiBorrowInfoController {
     @Resource
     private BorrowInfoService borrowInfoService;
 

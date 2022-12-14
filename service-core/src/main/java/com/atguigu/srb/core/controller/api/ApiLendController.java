@@ -30,7 +30,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("api/core/lend")
 @Slf4j
-public class LendController {
+public class ApiLendController {
     @Resource
     private LendService lendService;
 
