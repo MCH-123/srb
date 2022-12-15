@@ -3,6 +3,7 @@ package com.atguigu.srb.core.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.atguigu.common.exception.Assert;
 import com.atguigu.common.result.ResponseEnum;
+import com.atguigu.srb.base.dto.SmsDTO;
 import com.atguigu.srb.core.enums.TransTypeEnum;
 import com.atguigu.srb.core.hfb.FormHelper;
 import com.atguigu.srb.core.hfb.HfbConst;
@@ -16,7 +17,10 @@ import com.atguigu.srb.core.pojo.entity.UserInfo;
 import com.atguigu.srb.core.service.TransFlowService;
 import com.atguigu.srb.core.service.UserAccountService;
 import com.atguigu.srb.core.service.UserBindService;
+import com.atguigu.srb.core.service.UserInfoService;
 import com.atguigu.srb.core.util.LendNoUtils;
+import com.atguigu.srb.rabbitutil.constant.MQConst;
+import com.atguigu.srb.rabbitutil.service.MQService;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +50,10 @@ public class UserAccountServiceImpl extends ServiceImpl<UserAccountMapper, UserA
     private TransFlowService transFlowService;
     @Resource
     private UserBindService userBindService;
+    @Resource
+    private UserInfoService userInfoService;
+    @Resource
+    private MQService mqService;
     @Override
     public String commitCharge(BigDecimal chargeAmt, Long userId) {
         UserInfo userInfo = userInfoMapper.selectById(userId);
@@ -83,6 +91,13 @@ public class UserAccountServiceImpl extends ServiceImpl<UserAccountMapper, UserA
         String agentBillNo = (String) paramMap.get("agentBillNo");
         TransFlowBO transFlowBo = new TransFlowBO(agentBillNo, bindCode, new BigDecimal(chargeAmt), TransTypeEnum.RECHARGE, "充值");
         transFlowService.saveTransFlow(transFlowBo);
+        //发消息
+        log.info("发消息");
+        String mobile = userInfoService.getMobileByBindCode(bindCode);
+        SmsDTO smsDTO = new SmsDTO();
+        smsDTO.setMobile(mobile);
+        smsDTO.setMessage("充值成功");
+        mqService.sendMessage(MQConst.EXCHANGE_TOPIC_SMS, MQConst.ROUTING_SMS_ITEM, smsDTO);
         return "success";
     }
 

@@ -32,6 +32,12 @@ spring:
 #    serialization:
 #     WRITE_DATES_AS_TIMESTAMPS: false
 #    default-property-inclusion: NON_DEFAULT
+  rabbitmq:
+    host: 192.168.14.111
+    port: 5672
+    virtual-host: /srbhost
+    username: srbuser
+    password: 123456
 
 mybatis-plus:
   configuration:

@@ -19,6 +19,7 @@ import com.atguigu.srb.core.service.UserInfoService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
@@ -134,6 +135,13 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         LambdaQueryWrapper<UserInfo> qw = new LambdaQueryWrapper<>();
         qw.eq(UserInfo::getMobile, mobile);
         return baseMapper.selectCount(qw) > 0;
+    }
+
+    @Override
+    public String getMobileByBindCode(String bindCode) {
+        UserInfo userInfo = baseMapper.selectOne(Wrappers.lambdaQuery(UserInfo.class)
+                .eq(UserInfo::getBindCode, bindCode));
+        return userInfo.getMobile();
     }
 
     @Override

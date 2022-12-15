@@ -59,6 +59,11 @@
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>rabbit-mq</artifactId>
+            <version>1.0</version>
+        </dependency>
 
 
     </dependencies>

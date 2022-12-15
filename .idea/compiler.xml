@@ -10,11 +10,12 @@
         <module name="jwt" />
         <module name="guigu-common" />
         <module name="hfb" />
-        <module name="service-base" />
+        <module name="service-oss" />
+        <module name="rabbit-mq" />
         <module name="service-gateway" />
         <module name="service-core" />
         <module name="service-sms" />
-        <module name="service-oss" />
+        <module name="service-base" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +26,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="guigu-common" options="-parameters" />
       <module name="jwt" options="-parameters" />
+      <module name="rabbit-mq" options="-parameters" />
       <module name="service-base" options="-parameters" />
       <module name="service-core" options="-parameters" />
       <module name="service-gateway" options="-parameters" />
