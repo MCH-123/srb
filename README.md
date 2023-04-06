@@ -65,22 +65,20 @@ srb-site -- 客户平台
 
 ##### 项目演示
 
-![](https://raw.githubusercontent.com/MCH-123/srb/master/images/%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B.png?token=GHSAT0AAAAAACA6I5UU54RL3W23UJ2FTR4WZBOPRVA)
+![](images/3.用户管理.jpg)
 
-![](https://raw.githubusercontent.com/MCH-123/srb/master/images/3.%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.jpg?token=GHSAT0AAAAAACA6I5UVKPEDLTLNP45C7B72ZBOPUVQ)
+![](images/6.借款审核.jpg)
 
-![](https://raw.githubusercontent.com/MCH-123/srb/master/images/6.%E5%80%9F%E6%AC%BE%E5%AE%A1%E6%A0%B8.jpg?token=GHSAT0AAAAAACA6I5UUN6FYIDCVKW4N7V7QZBOPVGQ)
+![](images/7.2标的详情.jpg)
 
-![](https://raw.githubusercontent.com/MCH-123/srb/master/images/7.1%E6%A0%87%E7%9A%84%E8%AF%A6%E6%83%85.jpg?token=GHSAT0AAAAAACA6I5UUPDIZI3SX6NE52JAKZBOPVZQ)
+![](images/8.用户个人中心.jpg)
 
-![](https://raw.githubusercontent.com/MCH-123/srb/master/images/8.%E7%94%A8%E6%88%B7%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.jpg?token=GHSAT0AAAAAACA6I5UVOXGNIYEA4SH5XHNEZBOPWHQ)
+![](images/9.用户标的列表.jpg)
 
-![](https://raw.githubusercontent.com/MCH-123/srb/master/images/9.%E7%94%A8%E6%88%B7%E6%A0%87%E7%9A%84%E5%88%97%E8%A1%A8.jpg?token=GHSAT0AAAAAACA6I5UV5JEVXEI45I5KLKLEZBOPWSA)
+![](images/10.用户标的详情.jpg)
 
-![](https://raw.githubusercontent.com/MCH-123/srb/master/images/10.%E7%94%A8%E6%88%B7%E6%A0%87%E7%9A%84%E8%AF%A6%E6%83%85.jpg?token=GHSAT0AAAAAACA6I5UVPOZG4WIU4LMPL4WSZBOPW6Q)
+![](images/11.借款人-还款计划.jpg)
 
-![](https://raw.githubusercontent.com/MCH-123/srb/master/images/11.%E5%80%9F%E6%AC%BE%E4%BA%BA-%E8%BF%98%E6%AC%BE%E8%AE%A1%E5%88%92.jpg?token=GHSAT0AAAAAACA6I5UU5ZRR72TIRTH3GLY2ZBOPXLA)
+![](images/12.投资人-回款计划.jpg)
 
-![](https://raw.githubusercontent.com/MCH-123/srb/master/images/12.%E6%8A%95%E8%B5%84%E4%BA%BA-%E5%9B%9E%E6%AC%BE%E8%AE%A1%E5%88%92.jpg?token=GHSAT0AAAAAACA6I5UUHBFSAYGJQ746W45GZBOPX4Q)
-
-![](https://raw.githubusercontent.com/MCH-123/srb/master/images/14.%E7%AC%AC%E4%B8%89%E6%96%B9%E6%94%AF%E4%BB%98.jpg?token=GHSAT0AAAAAACA6I5UV27T3O3VCCYH2B45IZBOPYSQ)
+![](images/14.第三方支付.jpg)
