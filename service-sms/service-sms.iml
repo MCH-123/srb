@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
+<module version="4">
   <component name="FacetManager">
     <facet type="JRebel" name="JRebel">
       <configuration>
@@ -7,10 +7,9 @@
           <map>
             <entry key="com.zeroturnaround.jrebel.FormatVersion" value="7.0.0" />
             <entry key="jrebelEnabled" value="true" />
-            <entry key="lastExternalPluginCheckTime" value="1669596120136" />
           </map>
         </option>
-        <option name="version" value="24" />
+        <option name="version" value="2" />
       </configuration>
     </facet>
   </component>

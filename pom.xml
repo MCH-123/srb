@@ -135,7 +135,6 @@
                 <artifactId>xmlbeans</artifactId>
                 <version>${apache.xmlbeans.version}</version>
             </dependency>
-
             <!--json-->
             <dependency>
                 <groupId>com.alibaba</groupId>

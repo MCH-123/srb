@@ -11,11 +11,11 @@
         <module name="guigu-common" />
         <module name="hfb" />
         <module name="service-oss" />
-        <module name="rabbit-mq" />
         <module name="service-gateway" />
-        <module name="service-core" />
-        <module name="service-sms" />
         <module name="service-base" />
+        <module name="service-sms" />
+        <module name="service-core" />
+        <module name="rabbit-mq" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
